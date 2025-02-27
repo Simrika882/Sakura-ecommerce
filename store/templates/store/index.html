@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sakura Clothing</title>
+
+    <!-- This line of code is for the icon. -->
+    <link rel="icon" type="image/x-icon" href="{% static 'store/images/sakura_ico.ico' %}">
+
+    <!-- These lines of code are for the font. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- These lines of code are for linking the CSS. -->
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/index.css' %}">
+</head>
+<body>
+
+    <!-- This code is for the navigation bar. Anchor tag is used for buttons that take us to the next page. -->
+    <header class="navigation">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'store/images/logo.png' %}" alt="logo">
+            </a>
+        </div>
+        <div class="category">
+            <nav>
+                <ul>
+                    <li>
+                       <a href="{% url 'jeans' %}">Jeans</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'clothes' %}">Clothes</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'shoes' %}">Shoes</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'accessories' %}">Accessories</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url 'cart' %}">Cart</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'profile' %}">{{user.first_name|capfirst}}</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'order' %}">Order</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">Log out</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}">Log in</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- This section of code is for the hero section. Normal heading, paragraph and image coder are written here. -->
+    <section class="hero spacing">
+        <!-- this is for image slider. -->
+        <div id="slider">
+            <figure>
+                <img src="{% static 'store/images/slider/1-03-01.jpg' %}" alt="Slider Image 1">
+                <img src="{% static 'store/images/slider/1-01.png' %}" alt="Slider Image 2">
+                <img src="{% static 'store/images/slider/1-04-01.jpg' %}" alt="Slider Image 3">
+                <img src="{% static 'store/images/slider/1-05-01.jpg' %}" alt="Slider Image 4">
+            </figure>
+        </div>
+    </section>
+
+    <!-- This section of code is for the overall view of the our services page with shortcut buttons to take you to that page. -->
+    <section class="our-services spacing">
+        <h1>SHOP BY CATEGORY</h1>
+        <div class="services">
+            <div class="box">
+                <h3>JEANS</h3>
+                <a class="btn-a button" href="{% url 'jeans' %}">Shop now</a>
+                <img src="{% static 'store/images/home/jeans.png' %}" alt="Jeans">
+            </div>
+            <div class="box">
+                <h3>CLOTHES</h3>
+                <a class="btn-a button" href="{% url 'clothes' %}">Shop now</a>
+                <img src="{% static 'store/images/home/outer.png' %}" alt="Outerwear">
+            </div>
+            <div class="box">
+                <h3>ACCESSORIES</h3>
+                <a class="btn-a button" href="{% url 'accessories' %}">Shop now</a>
+                <img src="{% static 'store/images/home/accessories-01-01.png' %}" alt="Accessories">
+            </div>
+        </div>
+    </section>
+
+    <!-- This section of code is for the footer section. -->
+    <footer>
+        <div class="divider"></div>
+        <div class="container">
+            <div class="footer-col1">
+                <img src="{% static 'store/images/logo.png' %}" alt="Footer Logo">  
+                <p></p>
+                <p></p>
+            </div>
+            <div class="footer-col2">
+                <div class="col2-col1">
+                    <p>FIND US AT</p>
+                    <p>"address, address"</p>
+                </div>
+                <div class="col2-col2">
+                    <p>CONTACT US</p>
+                    <p>+977 0000000000</p>
+                    <p>info@sakuraclothing.com</p><br>
+                </div>
+            </div> 
+        </div>
+        <div class="divider"></div>
+        <div class="footer">
+            <p>© Sakura Clothing 2024 COOKIES POLICY | PRIVACY POLICY</p>
+        </div>
+    </footer>
+</body>
+</html>
