@@ -3,16 +3,46 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .models import Brand,Category,Product
 from .forms import RegistrationForm, LoginForm, EditProfileForm, ChangePasswordForm
 # Create your views here.
 def index(request):
-    return render(request, "store/index.html")
+    brands = Brand.get_all_brand()[:10]
+    category = Category.get_all_category()
+    products = Product.objects.all().order_by('-id')[:7]  
+    
+    return render(
+        request,
+        "store/index.html",
+        {
+            "brand": brands,
+            "category": category,
+            "products": products,
+            
+        },
+    )
+    
 
 def clothes(request):
     return render(request, 'store/clothes.html')
 
 def jeans(request):
-    return render(request, 'store/jeans.html')
+    brands = Brand.get_all_brand()[:10]
+    category = Category.get_all_category()
+    products = Product.objects.all().order_by('-id')[:7]  
+    
+    return render(
+        request,
+        "store/jeans.html",
+        {
+            "brand": brands,
+            "category": category,
+            "products": products,
+            
+        },
+    )
+    
+    
 
 def login(request):
     if request.method == "POST":

@@ -62,78 +62,20 @@
 
     <div class="display">
         <div class="box">
+
+            {%for product in products%}
+
             <div class="hover">
-                <img src="{% static 'store/images/jeans/Straight jeans.jpg' %}" alt="Straight Jeans">
+                <img src="{{ product.image.url }}" alt="Straight Jeans">
                 <button>Add to cart</button>
             </div>
-            <p>Clothes</p>
-            <h4>Straight jeans</h4>
-            <rs>RS 2,700.00</rs>
+            <p> {{product.category}}</p>
+            <h4>{{product.name}}</h4>
+            <rs>RS {{product.price}}</rs>
+            {% endfor  %}
         </div>
-        <div class="box">
-            <div class="hover">
-                <img src="{% static 'store/images/jeans/Light blue Straight Fit.jpg' %}" alt="Light Blue Straight Fit">
-                <button>Add to cart</button>
-            </div>
-            <p>Clothes</p>
-            <h4>Light blue Straight Fit</h4>
-            <rs>RS 2,500.00</rs>
-        </div>
-        <div class="box">
-            <div class="hover">
-                <img src="{% static 'store/images/jeans/Dark Blue Straight Fit.jpg' %}" alt="Dark Blue Straight Fit">
-                <button>Add to cart</button>
-            </div>
-            <p>Clothes</p>
-            <h4>Dark Blue Straight Fit</h4>
-            <rs>RS 2,500.00</rs>
-        </div>
-        <div class="box">
-            <div class="hover">
-                <img src="{% static 'store/images/jeans/grey.jpg' %}" alt="Gray-wash cargo pant">
-                <button>Add to cart</button>
-            </div>
-            <p>Clothes</p>
-            <h4>Gray-wash cargo pant</h4>
-            <rs>RS 2,400.00</rs>
-        </div>
-        <div class="box">
-            <div class="hover">
-                <img src="{% static 'store/images/jeans/Beige mom jeans-01.jpg' %}" alt="Beige mom jeans">
-                <button>Add to cart</button>
-            </div>
-            <p>Clothes</p>
-            <h4>Beige mom jeans</h4>
-            <rs>RS 2,300.00</rs>
-        </div>
-        <div class="box">
-            <div class="hover">
-                <img src="{% static 'store/images/jeans/Dark-blue skinny jeans-01.jpg' %}" alt="Dark-blue skinny jeans">
-                <button>Add to cart</button>
-            </div>
-            <p>Clothes</p>
-            <h4>Dark-blue skinny jeans</h4>
-            <rs>RS 2,500.00</rs>
-        </div>
-        <div class="box">
-            <div class="hover">
-                <img src="{% static 'store/images/jeans/bandana jeans-01.jpg' %}" alt="Bandana jeans">
-                <button>Add to cart</button>
-            </div>
-            <p>Clothes</p>
-            <h4>Bandana jeans</h4>
-            <rs>RS 2,200.00</rs>
-        </div>
-        <div class="box">
-            <div class="hover">
-                <img src="{% static 'store/images/jeans/blue short jeans-01.jpg' %}" alt="Blue short jeans">
-                <button>Add to cart</button>
-            </div>
-            <p>Clothes</p>
-            <h4>Blue short jeans</h4>
-            <rs>RS 1,800.00</rs>
-        </div>
-    </div>
+      
+             
 
     <!-- This section of code is for the footer section. -->
     <footer>
