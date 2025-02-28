@@ -1,0 +1,205 @@
+/* Reset default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling - Excluding Header & Footer */
+body {
+    background-color: #fff;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Content Wrapper */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Form Container */
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    background: #f8f8f8;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Header */
+.form-container h2 {
+    text-align: center;
+    color: #ec407a;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Input Fields */
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Focus effect */
+.form-container input:focus {
+    outline: none;
+    border-color: #ec407a;
+    box-shadow: 0px 0px 5px rgba(236, 64, 122, 0.5);
+}
+
+/* Buttons */
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    background: #ec407a;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Button Hover Effect */
+.form-container button:hover {
+    background: #d83769;
+}
+
+/* Links */
+.form-container a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #ec407a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Link Hover */
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .form-container input,
+    .form-container button {
+        font-size: 14px;
+    }
+}
+/* Center the form */
+.edit-profile-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form Heading */
+.edit-profile-container h2 {
+    color: #ec407a;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Labels */
+.edit-profile-container label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Input Fields */
+.edit-profile-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Focus effect */
+.edit-profile-container input:focus {
+    outline: none;
+    border-color: #ec407a;
+    box-shadow: 0px 0px 5px rgba(236, 64, 122, 0.5);
+}
+
+/* Save Changes Button */
+.edit-profile-container button {
+    width: 100%;
+    padding: 12px;
+    background: #ec407a;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Button Hover */
+.edit-profile-container button:hover {
+    background: #d83769;
+}
+
+/* Back to Profile Link */
+.edit-profile-container a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #ec407a;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Link Hover */
+.edit-profile-container a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .edit-profile-container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .edit-profile-container input,
+    .edit-profile-container button {
+        font-size: 14px;
+    }
+}

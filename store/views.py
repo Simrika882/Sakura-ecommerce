@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout, update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import RegistrationForm, LoginForm
+from django.contrib.auth.decorators import login_required
+from .forms import RegistrationForm, LoginForm, EditProfileForm, ChangePasswordForm
 # Create your views here.
 def index(request):
     return render(request, "store/index.html")
@@ -67,3 +68,35 @@ def profile(request):
 def order(request):
     return render(request, 'store/order.html')
       
+
+@login_required
+def edit_profile(request):
+    if request.method == "POST":
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect("profile")
+    else:
+        form = EditProfileForm(instance=request.user)
+
+    return render(request, "store/edit_profile.html", {"form": form})
+
+@login_required
+def change_password(request):
+    if request.method == "POST":
+        form = ChangePasswordForm(request.POST)
+        if form.is_valid():
+            old_password = form.cleaned_data["old_password"]
+            new_password = form.cleaned_data["new_password"]
+
+            if not request.user.check_password(old_password):
+                messages.error(request, "Old password is incorrect!")
+            else:
+                request.user.set_password(new_password)
+                request.user.save()
+                update_session_auth_hash(request, request.user) 
+                return redirect("profile")
+    else:
+        form = ChangePasswordForm()
+
+    return render(request, "store/change_password.html", {"form": form})

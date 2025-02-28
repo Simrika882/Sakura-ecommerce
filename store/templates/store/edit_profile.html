@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +14,16 @@
     <!-- These lines of code are for the font. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- These lines of code are for linking the CSS. -->
     <link rel="stylesheet" type="text/css" href="{% static 'store/css/style.css' %}">
-    
-    <link rel="stylesheet" type="text/css" href="{% static 'store/css/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/edit_profile.css' %}">
 
 </head>
+
 <body>
 
     <!-- This code is for the navigation bar. Anchor tag is used for buttons that take us to the next page. -->
@@ -34,7 +37,7 @@
             <nav>
                 <ul>
                     <li>
-                       <a href="{% url 'jeans' %}">Jeans</a>
+                        <a href="{% url 'jeans' %}">Jeans</a>
                     </li>
                     <li>
                         <a href="{% url 'clothes' %}">Clothes</a>
@@ -74,46 +77,51 @@
         </div>
     </header>
 
-    <div class="profile-container">
-        <div class="profile-card">
-            <div class="profile-image">
-                <img src="#">
-            </div>
-            <div class="profile-details">
-                <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
-                <p>Username: {{ user.username }}</p>
-                <p>Email: {{ user.email }}</p>
-                <a href="{% url 'edit_profile' %}" class="edit-btn">Edit Profile</a>
-                <a href="{% url 'change_password' %}" class="edit-btn">Change Password</a>
-
-            </div>
-        </div>
+    <div class="edit-profile-container">
+        <h2>Edit Profile</h2>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <label for="id_first_name">First Name:</label>
+            <input type="text" id="id_first_name" name="first_name" value="{{ form.first_name.value }}" required>
+    
+            <label for="id_last_name">Last Name:</label>
+            <input type="text" id="id_last_name" name="last_name" value="{{ form.last_name.value }}" required>
+    
+            <label for="id_email">Email:</label>
+            <input type="email" id="id_email" name="email" value="{{ form.email.value }}" required>
+    
+            <button type="submit">Save Changes</button>
+        </form>
+        <a href="{% url 'profile' %}">Back to Profile</a>
     </div>
     
-<footer>
-    <div class="divider"></div>
-    <div class="container">
-        <div class="footer-col1">
-            <img src="{% static 'store/images/logo.png' %}" alt="Footer Logo">  
-            <p></p>
-            <p></p>
+
+    <footer>
+        <div class="divider"></div>
+        <div class="container">
+            <div class="footer-col1">
+                <img src="{% static 'store/images/logo.png' %}" alt="Footer Logo">
+                <p></p>
+                <p></p>
+            </div>
+            <div class="footer-col2">
+                <div class="col2-col1">
+                    <p>FIND US AT</p>
+                    <p>"address, address"</p>
+                </div>
+                <div class="col2-col2">
+                    <p>CONTACT US</p>
+                    <p>+977 0000000000</p>
+                    <p>info@sakuraclothing.com</p><br>
+                </div>
+            </div>
         </div>
-        <div class="footer-col2">
-            <div class="col2-col1">
-                <p>FIND US AT</p>
-                <p>"address, address"</p>
-            </div>
-            <div class="col2-col2">
-                <p>CONTACT US</p>
-                <p>+977 0000000000</p>
-                <p>info@sakuraclothing.com</p><br>
-            </div>
-        </div> 
-    </div>
-    <div class="divider"></div>
-    <div class="footer">
-        <p>© Sakura Clothing 2024 COOKIES POLICY | PRIVACY POLICY</p>
-    </div>
-</footer>
+        <div class="divider"></div>
+        <div class="footer">
+            <p>© Sakura Clothing 2024 COOKIES POLICY | PRIVACY POLICY</p>
+        </div>
+    </footer>
 </body>
+
 </html>

@@ -16,6 +16,8 @@ urlpatterns = [
 	path('checkout/', views.checkout, name="checkout"),
 	path('profile/', views.profile, name="profile"),
 	path('order/', views.order, name="order"),
+    path("edit-profile/", views.edit_profile, name="edit_profile"),
+    path("change-password/", views.change_password, name="change_password"),
 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
